@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <meta name="description" content="DTI Shop" />
+    <meta name="keywords" content="DTI Shop, online shopping, e-commerce" />
+    <meta name="author" content="DTI Shop" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <h1>Register</h1>
+    <h3>Please fill in the details below</h3>
+    <form id="registerForm" action="#" method="post" novalidate>
+        <div>
+            <label for="firstName">First name</label><br>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+            <label for="lastName">Last name</label><br>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" minlength="6" required autocomplete="new-password">
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" minlength="6" required autocomplete="new-password">
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="terms" required>
+                I agree to the Terms & Conditions
+            </label>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        const pwd = document.getElementById('password').value?.trim();
+        const cpwd = document.getElementById('confirmPassword').value?.trim();
+        if (pwd !== cpwd) {
+            e.preventDefault();
+            alert('Passwords do not match.');
+        } else if (pwd.length < 4) {
+            alert('Password must be at least 4 characters long.');
+        }
+    });
+    </script>
+  </body>
+</html>
